@@ -1,0 +1,57 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgb(242, 174, 119);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 1rem;
+    background-color: rgb(242, 174, 119);
+  }
+
+ h2, p {
+    color: white;
+ }
+
+
+
+  .FirstView {
+    background-image: url("https://img.freepik.com/free-photo/beautiful-garden-in-autumn-at-enkoji-temple-kyoto-japan_335224-78.jpg?w=1480&t=st=1700280357~exp=1700280957~hmac=b255d1c668a2766302c8a00bc811856cac414a36f7c66cca18b0c4cb18ce0c61");
+    background-size: cover; 
+    color: #fff;
+    text-align: center;
+    padding: 250px 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .FirstView__title {
+    font-size: 4em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  
