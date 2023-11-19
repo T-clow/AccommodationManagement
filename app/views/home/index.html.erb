@@ -1,11 +1,28 @@
 <div class="FirstView">
   <section class="container">
-        <h2 class="FirstView__title">
-        Hotel Harmonyで<br>
-        新たな旅の調べに出会う、<br>
-        心地よいハーモニー
-        </h2>
-  </section>
+    <h2 class="FirstView__title">
+      Hotel Harmonyで<br>
+      新たな旅の調べに出会う、<br>
+      心地よいハーモニー
+    </h2>
 
-  
+    <div class="search-box">
+      <%= form_tag(search_path, method: :get) do %>
+        <%= text_field_tag :query, params[:query], placeholder: 'エリアを検索...' %>
+        <%= submit_tag '検索', class: "btn btn-dark" %>
+      <% end %>
+    </div>
+  </section>
 </div>
+
+<div class="RecommendedAreas">
+  <h3>おすすめのエリア</h3>
+  <ul class="list-inline">
+    <li class="list-inline-item"><%= link_to '東京', '/', class: 'btn btn-light' %></li>
+    <li class="list-inline-item"><%= link_to '大阪', '/', class: 'btn btn-light' %></li>
+    <li class="list-inline-item"><%= link_to '京都', '/', class: 'btn btn-light' %></li>
+    <li class="list-inline-item"><%= link_to '札幌', '/', class: 'btn btn-light' %></li>
+  </ul>
+</div>
+
+

@@ -29,7 +29,13 @@ body {
     background-color: rgb(242, 174, 119);
   }
 
- h2, p {
+  .logo {
+    font-size: 50px; 
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff; 
+  }
+ p {
     color: white;
  }
 
@@ -54,4 +60,14 @@ body {
     margin-bottom: 20px;
   }
 
-  
+  .search-box {
+  margin-top: 20px; /* 上方向への余白を追加 */
+}
+
+.search-box input {
+  padding: 10px; /* 入力フィールドの余白 */
+}
+
+.search-box button {
+  padding: 10px; /* ボタンの余白 */
+}
