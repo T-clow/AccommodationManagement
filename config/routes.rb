@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
+  resource :account
+  resources :rooms do
+    collection do
+      get 'search'
+      get 'search_by_address' # 住所検索のためのアクションを追加
+    end
+
+    resources :reservations, only: [:new, :create]
+  end
+
   root 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/search', to: 'search#index', as: 'search'
 end

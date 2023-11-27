@@ -1,0 +1,57 @@
+<h1>登録一覧</h1>
+
+<table class="table align-middle OwnRoomsTable">
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th>施設名</th>
+      <th>紹介文</th>
+      <th>料金</th>
+      <th>作成日</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td>
+        <% if room.image? %>
+        <%= link_to room_path(room), class: "btn btn-outline-warning" do %>
+          <%= image_tag(room.image.url, alt: 'Room Image', class: 'room-image') %>
+        <% end %>
+      <% else %>
+        <%= link_to room_path(room), class: "btn btn-outline-dark" do %>
+          <%= image_tag('https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png', alt: 'Default Image', class: 'room-image') %>
+        <% end %>
+      <% end %>
+      
+        </td>
+
+        <td>
+          <%= link_to room.name, room_path(room), class: "btn btn-light" %>
+        </td>
+
+        <td>
+          <%= room.description %>
+        </td>
+
+        <td>
+          ¥<%= room.price %>〜
+        </td>
+
+        <td>
+          <%= room.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </td>
+
+        <td>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">≡</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to '編集', edit_room_path(room), class: "dropdown-item" %>
+            <%= button_to '施設を削除', room, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "dropdown-item custom-button" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

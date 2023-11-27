@@ -1,0 +1,45 @@
+<div class="search-ber">
+  <%= form_tag(search_rooms_path, method: :get, class: "search-form") do %>
+    <%= text_field_tag :address_query, params[:address_query], placeholder: 'エリアを入力' %>
+    <%= text_field_tag :free_query, params[:free_query], placeholder: 'キーワードを入力' %>
+    <%= submit_tag '検索', class: "btn btn-secondary" %>
+  <% end %>
+</div>
+
+<% if @results.any? %>
+  <div class="row">
+    <% @results.each do |room| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+
+          <div class="card-image">
+            <% if room.image.present? %>
+              <%= image_tag room.image.url, class: "card-img-top", alt: "Room Image" %>
+            <% else %>
+              <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png', class: "card-img-top", alt: "Default Image" %>
+            <% end %>
+          </div>
+
+          <div class="card-body">
+            <h3 class="name"><%= room.name %></h3>
+            <p class="address"><%= room.address %></p>
+            <span class="Room__stars">
+              <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+              <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+              <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+              <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+              <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+            </span>
+            <p class="description"><%= room.description %></p>
+            <div class="price-bar" >
+              <p class="price">¥<%= room.price %>〜</p>
+              <%= link_to room_path(room), class: "btn btn-outline-warning btn-center-text" do %>詳細はこちら<% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h5>登録がありません</h5>
+<% end %>

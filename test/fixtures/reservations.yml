@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2023-11-27 15:45:57
+  end_date: 2023-11-27 15:45:57
+  number_of_people: 1
+  room: one
+
+two:
+  start_date: 2023-11-27 15:45:57
+  end_date: 2023-11-27 15:45:57
+  number_of_people: 1
+  room: two

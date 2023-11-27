@@ -1,0 +1,110 @@
+// Place all the styles related to the Rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+  .room-image {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; 
+  }
+  
+  .room-container {
+    display: flex;
+  }
+  
+  .room-image-show img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .room-image-show {
+    margin: 30px; 
+    width: 400px; 
+    height: 400px; 
+    overflow: hidden; /* はみ出た部分を隠す */
+  }
+
+  .room-menu {
+    margin: 30px 10px;
+    width: 50%;
+    background-color:  rgb(242, 231, 222);
+  }
+
+  .room-menu-inner {
+    margin: 30px;
+  }
+
+  .room-name-and-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .name {
+    font-size: 40px;
+  }
+
+  .price {
+    color: red;
+    font-size: 30px;
+  }
+
+  .address {
+    color: rgb(141, 137, 137);
+  }
+
+  .description {
+    margin-top: 10px;
+    color: rgb(0, 0, 0);
+  }
+
+  /*検索窓の設定*/
+  .search-ber {
+    padding: 20px 30px;
+    background-color:  rgb(242, 231, 222);
+  }
+
+  .search-form {
+    display: flex; 
+  }
+  
+  .search-form input[type="text"] {
+    width: 20%;
+    margin-right: 20px; 
+  }
+
+  .search-form input[type="submit"]{
+    width: 8%;
+  }
+
+  /*検索カードの設定*/
+.row {
+  margin: 30px;
+}
+
+/* カード内の画像に適用するスタイル */
+.card-image img {
+  width: 100%; 
+  height:300px; 
+  object-fit: cover; 
+}
+
+/* カード全体の高さを設定する */
+.card {
+  height: 100%; 
+}
+
+.price-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-center-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+

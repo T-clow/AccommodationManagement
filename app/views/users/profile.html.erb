@@ -1,0 +1,19 @@
+<h1 class="edittitile" >プロフィール</h1>
+
+<nav class="navbar">
+  <%= link_to 'アカウント', account_path(current_user), class: "nav-link" %>
+  <%= link_to 'プロフィール', account_path(page: 'profile'), class: "nav-link" %>
+</nav>
+
+<div class="info">
+    <div>
+    <strong>アイコン画像:</strong> <%= image_tag(current_user.avatar,class:"rounded-image") %>
+    </div>
+
+    <div>
+    <strong>名前:</strong> <%= @user.name %>
+    </div>
+
+
+    <%= link_to 'プロフィール編集', edit_user_registration_path, class: "btn btn-outline-warning" %>
+</div>

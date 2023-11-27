@@ -13,3 +13,65 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+
+ /* ヘッダーとフッターの設定です */
+
+ body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgb(242, 174, 119);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 1rem;
+    background-color: rgb(242, 174, 119);
+  }
+
+  .logo {
+    font-size: 50px; 
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff; 
+  }
+ p {
+    color: white;
+ }
+
+ /* ドロップダウンメニューの設定です */
+
+ .white-text {
+    color: white;
+    font-size: 25px;
+  }
+
+  .dropdown-toggle::after {
+    border-top-color: white;
+  }
+  
+   /* ユーザー画像の丸型設定です */
+  .rounded-image {
+    margin-right: 15px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  
