@@ -45,6 +45,7 @@ group :development do
   gem 'devise'
   gem 'bootstrap', '~> 5.0'
   gem 'carrierwave'
+  gem 'flatpickr'
 end
 
 group :test do

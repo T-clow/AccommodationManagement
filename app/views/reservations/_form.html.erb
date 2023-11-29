@@ -1,3 +1,21 @@
-<input>
-<input>
-<h5>予約する</h5>
+<%= form_for [@room, @reservation] do |f| %>
+    <div class="form-row">
+      <div class="form-group col">
+        <%= f.label :チェックイン %>
+        <%= f.text_field :start_date, required: true, class: 'datepicker form-control ' %>
+      </div>
+  
+      <div class="form-group col">
+        <%= f.label :チェックアウト %>
+        <%= f.text_field :end_date, required: true, class: 'datepicker form-control' %>
+      </div>
+  
+      <div class="form-group col">
+        <%= f.label :人数 %>
+        <%= f.text_field :number_of_people, class: 'form-control' %>
+      </div>
+    </div>
+  
+    <%= f.submit '予約する', class: 'btn btn-outline-danger' %>
+  <% end %>
+  
