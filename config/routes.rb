@@ -4,15 +4,23 @@ Rails.application.routes.draw do
   }
 
   resource :account
+
   resources :rooms do
     collection do
       get 'search'
       get 'search_by_address' # 住所検索のためのアクションを追加
     end
 
-    resources :reservations, only: [:new, :create]
+    resources :reservations do
+      member do
+        get :confirm
+        patch :confirm_update
+      end
+    end
   end
 
-  root 'home#index'
   get '/search', to: 'search#index', as: 'search'
+  
+
+  root 'home#index'
 end
