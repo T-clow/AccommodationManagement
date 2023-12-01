@@ -1,56 +1,42 @@
 class ReservationsController < ApplicationController
-  before_action :set_room, only: [:new, :create, :confirm]
-
-  def index
-    @reservation = Reservation.all
-  end
 
   def new
-    @reservation = Reservation.new
+    if params[:room_id].present?
+      @room = Room.find(params[:room_id]) 
+      @reservation = @room.reservations.build
+    else
+      flash[:error] = "Invalid room ID"
+      redirect_to root_path
+    end
   end
-
+  
   def confirm
     @reservation = Reservation.find(params[:id])
     @room = @reservation.room
-
-    if @reservation.invalid?
-      render 'new'
-    end
   end
-
-  def confirm_update
+  
+  def update
     @reservation = Reservation.find(params[:id])
-    @room = @reservation.room
-
-    if @reservation.update(reservation_params)
-      redirect_to reservation_path(@room, @reservation), notice: '予約が更新されました。'
+    if @reservation.update(confirmed_at: Time.now)
+      redirect_to reservation_path(@reservation)
     else
-      render 'confirm'
+      render :confirm
     end
   end
 
   def create
-    @room = Room.find(params[:room_id])
     @reservation = Reservation.new(reservation_params)
-    @reservation.room = @room
-    @reservation.user = current_user
-
     if @reservation.save
-      redirect_to confirm_room_reservation_path(@room, @reservation), notice: '予約が完了しました。'
+      redirect_to confirm_reservation_path(@reservation)
     else
-      render 'new'
+      render :new
     end
   end
-
+  
   private
-
-  def set_room
-    @room = Room.find(params[:room_id])
+  
+  def reservation_params
+    params.require(:reservation).permit(:room_id, :user_id, :start_date, :end_date, :number_of_people)
   end
-
-def reservation_params
-  params.require(:reservation).permit(:room_id, :start_date, :end_date, :number_of_people, :user_id, :price)
-end
-
   
 end

@@ -1,5 +1,7 @@
-<%= form_for [@room, @reservation], url: room_reservations_path(@room, @reservation) do |f| %>
-  <%= f.hidden_field :room_id, value: @room.id %>
+<%= form_for @reservation, url: reservations_path do |f| %>
+  <% if @room.present? %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+  <% end %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
     <div class="form-row">
@@ -18,7 +20,6 @@
         <%= f.text_field :number_of_people, class: 'form-control' %>
       </div>
     </div>
-  
-    <%= f.submit '予約する', class: 'btn btn-outline-danger' %>
+    <button type="submit" class="btn btn-outline-danger">予約する</button>
   <% end %>
   

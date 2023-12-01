@@ -1,1 +1,10 @@
 <h3>予約の詳細ページです</h3>
+<!-- app/views/reservations/show.html.erb -->
+<!-- 予約が確定した旨の表示や詳細情報表示などを追加 -->
+<p>予約が確定しました！</p>
+<h3>チェックイン日: <%= @reservation.start_date %></h3>
+<h3>チェックアウト日: <%= @reservation.end_date %></h3>
+<h3>滞在日数: <%= @reservation.stay_duration %> 泊</h3>
+<h3>人数: <%= @reservation.number_of_people %></h3>
+<h3>合計金額: <%= @reservation.total_price %> 円</h3>
+<!-- 他の項目も表示 -->

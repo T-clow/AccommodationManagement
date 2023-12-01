@@ -11,12 +11,10 @@ Rails.application.routes.draw do
       get 'search_by_address' # 住所検索のためのアクションを追加
     end
 
-    resources :reservations do
-      member do
-        get :confirm
-        patch :confirm_update
-      end
-    end
+  end
+
+  resources :reservations, only: [:new, :create, :show, :update] do
+    get 'confirm', on: :member, as: :confirm
   end
 
   get '/search', to: 'search#index', as: 'search'
