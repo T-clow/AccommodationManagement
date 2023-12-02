@@ -1,25 +1,27 @@
-<%= form_for @reservation, url: confirm_reservation_path, method: :post do |f| %>
+<%= form_for @reservation, url: reservations_path do |f| %>
   <% if @room.present? %>
     <%= f.hidden_field :room_id, value: @room.id %>
   <% end %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <div class="form-row">
-    <div class="form-group col">
-      <%= f.label :チェックイン %>
-      <%= f.text_field :start_date, required: true, class: 'datepicker form-control ' %>
+    <div class="form-row">
+      <div class="form-group col">
+        <%= f.label :チェックイン %>
+        <%= f.text_field :start_date, required: true, class: 'datepicker form-control ' %>
+      </div>
+  
+      <div class="form-group col">
+        <%= f.label :チェックアウト %>
+        <%= f.text_field :end_date, required: true, class: 'datepicker form-control' %>
+      </div>
+  
+      <div class="form-group col">
+        <%= f.label :人数 %>
+        <%= f.text_field :number_of_people, class: 'form-control' %>
+      </div>
     </div>
 
-    <div class="form-group col">
-      <%= f.label :チェックアウト %>
-      <%= f.text_field :end_date, required: true, class: 'datepicker form-control' %>
-    </div>
+    <%= link_to confirm_reservation_path(id: 1), method: :get, class: 'btn btn-outline-danger' do %>予約する<% end %>
 
-    <div class="form-group col">
-      <%= f.label :人数 %>
-      <%= f.text_field :number_of_people, class: 'form-control' %>
-    </div>
-  </div>
 
-  <%= f.submit '予約する', class: 'btn btn-outline-danger' %>
-<% end %>
+  <% end %>
