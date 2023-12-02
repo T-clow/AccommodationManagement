@@ -27,7 +27,7 @@
 
         <p class="description"><%= @room.description %></p>
       </div>
-      <%= link_to '新しい予約作成', new_reservation_path(room_id: @room.id) %>
+      <%= render "reservations/new", reservation: @reservation %>
     </div>
   </div>
 </div>

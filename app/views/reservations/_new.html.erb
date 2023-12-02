@@ -20,6 +20,8 @@
         <%= f.text_field :number_of_people, class: 'form-control' %>
       </div>
     </div>
-    <button type="submit" class="btn btn-outline-danger">予約する</button>
+
+    <%= link_to confirm_reservation_path(id: 1), method: :get, class: 'btn btn-outline-danger' do %>予約する<% end %>
+
+
   <% end %>
-  

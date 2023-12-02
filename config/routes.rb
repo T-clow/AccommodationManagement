@@ -13,10 +13,12 @@ Rails.application.routes.draw do
 
   end
 
-  resources :reservations, only: [:new, :create, :show, :update] do
-    get 'confirm', on: :member, as: :confirm
+  resources :reservations do
+    member do
+      get 'confirm' # 確認画面表示
+      patch 'update_confirmation' # 確認画面からの確定処理
+    end
   end
-
   get '/search', to: 'search#index', as: 'search'
   
 
