@@ -1,0 +1,23 @@
+<!-- app/views/reservations/index.html.erb -->
+<h1>予約済み一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>開始日時</th>
+      <th>終了日時</th>
+      <th>人数</th>
+      <!-- 他に表示したい情報があれば追加 -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.start_date %></td>
+        <td><%= reservation.end_date %></td>
+        <td><%= reservation.number_of_people %></td>
+        <!-- 他に表示したい情報があれば追加 -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,5 +1,9 @@
 class ReservationsController < ApplicationController
 
+  def index
+    @reservations = Reservation.all
+  end
+
   def new
     @room = Room.find(params[:room_id]) if params[:room_id].present?
     @reservation = @room.reservations.build

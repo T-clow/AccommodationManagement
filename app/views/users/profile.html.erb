@@ -7,7 +7,12 @@
 
 <div class="info">
     <div>
-    <strong>アイコン画像:</strong> <%= image_tag(current_user.avatar,class:"rounded-image") %>
+      <strong>アイコン画像:</strong>
+      <% if current_user.avatar.present? %>
+        <%= image_tag(current_user.avatar, class: "rounded-image") %>
+      <% else %>
+        <span>アイコン画像がありません</span>
+       <% end %>
     </div>
 
     <div>
