@@ -9,5 +9,14 @@
 
 <h4>上記内容で正しければ『確定』ボタンを押してください。</h4>
 
-<%= link_to '確定する', room_reservations_path(@room, @reservation), method: :post, class: 'btn btn-outline-danger' %>
-<%= link_to '戻る', room_path(@room), class: 'btn btn-outline-primary' %>
+<%= link_to '戻る', new_reservation_path(@room, reservation: @reservation) %>
+
+<%= form_with(model: @reservation, url: update_confirmation_reservation_path(@reservation), method: :patch, local: true) do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <%= f.hidden_field :start_date, value: @reservation.start_date %>
+  <%= f.hidden_field :end_date, value: @reservation.end_date %>
+  <%= f.hidden_field :number_of_people, value: @reservation.number_of_people %>
+  <%= f.hidden_field :price, value: @room.price %>
+  <%= f.submit '確定する', class: 'btn btn-outline-danger' %>
+<% end %>
