@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
 
-  def index
+    def index
     @reservations = Reservation.all
   end
 
@@ -11,12 +11,12 @@ class ReservationsController < ApplicationController
 
   
   def confirm
-    @reservation = Reservation.find(params[:id])
+    @reservation = Reservation.new(reservation_params)
     @room = @reservation.room
   end
 
   def update_confirmation
-    @reservation = Reservation.find(params[:id])
+    @reservation = Reservation.new(reservation_params)
     @room = @reservation.room
 
     # 確定処理を実行

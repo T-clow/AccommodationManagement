@@ -3,8 +3,8 @@ class User < ApplicationRecord
   has_many :reservations, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :timeoutable, :trackable
-  has_one_attached :avatar
+  has_one_attached :avatar, dependent: :destroy
   has_many :reservations, dependent: :destroy
 
-  has_many :rooms
+  has_many :rooms, dependent: :destroy
 end

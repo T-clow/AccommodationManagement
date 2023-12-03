@@ -1,4 +1,4 @@
-<%= form_for @reservation, url: reservations_path do |f| %>
+<%= form_for @reservation, url: confirm_reservation_path, method: :post do |f| %>
   <% if @room.present? %>
     <%= f.hidden_field :room_id, value: @room.id %>
   <% end %>
