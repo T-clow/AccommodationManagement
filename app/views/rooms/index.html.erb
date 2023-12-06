@@ -9,6 +9,7 @@
       <th>料金</th>
       <th>作成日</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -45,11 +46,10 @@
         </td>
 
         <td>
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">≡</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to '編集', edit_room_path(room), class: "dropdown-item" %>
-            <%= button_to '施設を削除', room, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "dropdown-item custom-button" %>
-          </div>
+          <%= link_to '編集', edit_room_path(room), class: "btn btn-outline-info" %>
+        </td>
+        <td>
+          <%= button_to '削除', room, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-outline-danger"%>
         </td>
       </tr>
     <% end %>

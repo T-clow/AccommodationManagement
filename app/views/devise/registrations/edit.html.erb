@@ -1,6 +1,7 @@
 <h1 class="edittitile">アカウント情報編集</h1>
 <div class="info">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
@@ -48,8 +49,7 @@
     <div class="actions">
       <%= f.submit "更新" %>
     </div>
-
-    <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当によろしいですか？", turbo_confirm: "本当によろしいですか？" }, method: :delete %>
   <% end %>
+  <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当によろしいですか？", turbo_confirm: "本当によろしいですか？" }, method: :delete %>
+  <%= link_to "戻る", :back %>
   </div>
-<%= link_to "戻る", :back %>

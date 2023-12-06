@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
-    def index
-    @reservations = Reservation.all
+  def index
+    @reservations = current_user.reservations #ログイン中のユーザーの予約のみ表示
   end
 
   def new
@@ -16,8 +16,9 @@ class ReservationsController < ApplicationController
   end
 
   def update_confirmation
-    @reservation = Reservation.new(reservation_params)
+    @reservation = Reservation.find(params[:id])
     @room = @reservation.room
+    @reservation.confirmed_at = Time.current
 
     # 確定処理を実行
     if @reservation.update(is_confirmed: true)
@@ -26,11 +27,13 @@ class ReservationsController < ApplicationController
       render :confirm
     end
   end
+  
 
   
 
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.confirmed_at = Time.current
 
     if @reservation.save
       # 予約作成に成功したら、詳細ページにリダイレクト
@@ -45,6 +48,13 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @room = @reservation.room
   end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to reservation_url, notice: '施設を削除しました'
+  end
+
 
   
   private

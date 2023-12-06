@@ -30,7 +30,7 @@
                 <%= link_to '施設の新規登録', new_room_path, class: "dropdown-item" %>
                 <%= link_to '予約済み一覧', reservations_path, class: "dropdown-item" %>
                 <%= link_to '登録済み一覧', rooms_path, class: "dropdown-item" %>
-                <%= link_to 'アカウント設定', account_path(current_user), class: "dropdown-item" %>
+                <%= link_to 'アカウント設定', account_path, class: "dropdown-item" %>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>
