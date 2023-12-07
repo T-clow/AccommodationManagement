@@ -15,10 +15,13 @@ Rails.application.routes.draw do
 
   resources :reservations do
     member do
-      post 'confirm' # 確認画面表示
-      patch 'update_confirmation' # 確認画面からの確定処理
+      post 'confirm'
+      patch 'update_confirm'
     end
   end
+  
+  patch 'reservations/:id', to: 'reservations#update', as: 'update_reservation'
+
   get '/search', to: 'search#index', as: 'search'
   
 

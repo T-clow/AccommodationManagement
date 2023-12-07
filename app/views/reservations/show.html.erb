@@ -8,4 +8,5 @@
   <p class="subtitle">合計金額: <%= @reservation.total_price %> 円</p>
 
   <%= link_to '予約済み一覧', reservations_path %>
+  <%= link_to '予約情報編集', edit_reservation_path(@reservation), class: "btn btn-outline-info" %>
   </div>
