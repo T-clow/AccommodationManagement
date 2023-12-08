@@ -12,6 +12,10 @@ class ReservationsController < ApplicationController
   def confirm
     @reservation = Reservation.new(reservation_params)
     @room = @reservation.room
+    unless @reservation.valid?
+      @reservation.errors.add(:base, "入力内容にエラーがあります。修正してください。")
+      render 'rooms/show'
+    end
   end
 
   def create

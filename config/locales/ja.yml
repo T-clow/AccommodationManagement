@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        reservation:
+          attributes:
+            start_date:
+              blank: "は必須項目です"
+              in_the_past: "は本日以前の日付を選択できません"
+            end_date:
+              blank: "は必須項目です"
+              before_start_date: "は開始日よりも後の日付にしてください"
+            number_of_people:
+              blank: "は必須項目です"
+              greater_than_or_equal_to: "は1人以上を入力してください"
+      models:
+        room:
+          attributes:
+            name:
+              blank: "は必須項目です"
+            description:
+              blank: "は必須項目です"
+            address:
+              blank: "は必須項目です"
+            price:
+              not_a_number: "は数値で入力してください"
