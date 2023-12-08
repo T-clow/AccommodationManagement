@@ -3,15 +3,25 @@ class Reservation < ApplicationRecord
   belongs_to :user
   attr_accessor :price
 
+  validate :start_date_should_be_in_present_or_future
+  validate :end_date_should_be_after_start_date
+  validates :number_of_people, numericality: { greater_than_or_equal_to: 1, message: "は1人以上を入力してください" }
 
-  def update_confirmation_check
-    # ここに適切な確認処理を実装する
-    # 確認が成功した場合は true を、失敗した場合は false を返す
-    # 例: 簡単な確認処理として、number_of_people が 5 以下であれば確認成功とする
-    number_of_people.to_i <= 5
+  def start_date_should_be_in_present_or_future
+    if start_date.present? && start_date < Date.current.beginning_of_day
+      errors.add(:start_date, "は本日以降の日付を選択してください")
+    end
   end
-  
 
+  def end_date_should_be_after_start_date
+    return unless start_date.present? && end_date.present?
+    
+    if end_date <= start_date
+      errors.add(:end_date, "は開始日よりも後の日付にしてください")
+    end
+  end
+
+ 
   def stay_duration
     (end_date - start_date).to_i / 1.day.to_i #1日の秒数で割る
   end
@@ -19,4 +29,5 @@ class Reservation < ApplicationRecord
   def total_price
     room&.price.to_i * number_of_people.to_i * stay_duration.to_i
   end
+  
 end

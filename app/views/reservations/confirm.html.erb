@@ -1,4 +1,4 @@
-<h1 class="title">予約内容確認</h1>
+<h1 class="title">新規予約内容確認</h1>
 
 <div class="confirmation-container">
     <h3><%= @room.name %></h3>
@@ -10,8 +10,6 @@
 
     <h5 class="confirmation-message">上記内容で正しければ『確定』ボタンを押してください。</h5>
 
-    <%= link_to '前のページに戻る', request.referer %>
-
     <%= form_with(model: @reservation, method: :post) do |f| %>
       <%= f.hidden_field :user_id %>
       <%= f.hidden_field :room_id, value: @room.id %>
@@ -21,4 +19,5 @@
       <%= f.hidden_field :price, value: @room.price %>
       <%= f.submit '確定する', class: 'submit-button' %>
     <% end %>
+    <%= link_to "戻る", :back, class: "back-link btn btn-outline-secondary" %>
   </div>

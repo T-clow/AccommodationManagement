@@ -1,19 +1,21 @@
 ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前を入力してください。"
+            email:
+              blank: "メールアドレスを入力してください。"
+              invalid: "メールアドレスが無効です。"
+            password:
+              blank: "パスワードを入力してください。"
+              too_short: "パスワードは%{count}文字以上で入力してください."
+            current_password:
+              blank: "現在のパスワードを入力してください。"
+            password_confirmation: 
+              confirmation: "パスワードとパスワードの確認が一致しません。"
   errors:
     messages:
-      already_confirmed: "は既に確認済みです。"
-      confirmation_period_expired: "の確認期間が切れています。もう一度新しい確認メールを送信してください。"
-      expired: "の期限が切れています。"
-      not_found_in_database: "が見つかりませんでした。"
-      not_locked: "はロックされていません。"
-      not_saved:
-        one: "%{resource} の保存に失敗しました。1つのエラーがあります。"
-        other: "%{resource} の保存に失敗しました。%{count} 件のエラーがあります。"
-      already_authenticated: "はすでにログインしています。"
-      unauthenticated: "はログインしていません。"
-      unconfirmed: "は確認されていません。"
-      invalid: "が無効です。"
-      invalid_token: "が無効なトークンです。"
-      timeout: "がタイムアウトしました。再度実行してください。"
-      inactive: "はアクティブではありません。"
-      not_omniauthable: "%{authentication_keys} が omniauthable ではありません。"
+      not_saved: "保存に失敗しました。"

@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to reservation_path(@reservation), notice: '予約が確定しました。'
     else
-      render :new
+      redirect_to room_path(id: params[:reservation][:room_id]), alert: '予約に失敗しました。'
     end
   end
 
@@ -51,19 +51,19 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def update_confirm
-    @reservation = Reservation.find(params[:id])
-  
-    # フォームが送信されたデータを使って予約を更新
-    if @reservation.update(reservation_params)
-      # 更新に成功した場合の処理
-      @room = @reservation.room
-    else
-      # 更新に失敗した場合の処理
-      render :edit
-    end
+ def update_confirm
+  @reservation = Reservation.find(params[:id])
+
+  # フォームが送信されたデータを使って予約を更新
+  if @reservation.update(reservation_params)
+    # 更新に成功した場合の処理
+    @room = @reservation.room
+  else
+    # 更新に失敗した場合の処理
+    render :edit
   end
-  
+end
+
 
   def destroy
     @reservation = Reservation.find(params[:id])

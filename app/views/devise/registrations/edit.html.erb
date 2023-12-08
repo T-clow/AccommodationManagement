@@ -47,9 +47,9 @@
 
 
     <div class="actions">
-      <%= f.submit "更新" %>
+      <%= f.submit "更新", class: 'btn btn-outline-primary' %>
     </div>
   <% end %>
-  <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当によろしいですか？", turbo_confirm: "本当によろしいですか？" }, method: :delete %>
-  <%= link_to "戻る", :back %>
+  <%= button_to "アカウントを削除する", registration_path(resource_name),class:"btn btn-outline-danger", data: { confirm: "本当によろしいですか？", turbo_confirm: "本当によろしいですか？" }, method: :delete %>
+  <%= link_to "戻る", :back, class: "back-link btn btn-outline-secondary" %>
   </div>
