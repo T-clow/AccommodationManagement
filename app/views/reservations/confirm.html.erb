@@ -19,5 +19,5 @@
       <%= f.hidden_field :price, value: @room.price %>
       <%= f.submit '確定する', class: 'submit-button' %>
     <% end %>
-    <%= link_to "戻る", :back, class: "back-link btn btn-outline-secondary" %>
+    <%= link_to "戻る", room_path(@room), class: "back-link btn btn-outline-secondary" %>
   </div>

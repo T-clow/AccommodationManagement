@@ -1,19 +1,30 @@
 ja:
   activerecord:
+    models:
+      reservation: "予約"
+      room: "部屋"
+    attributes:
+      reservation:
+        start_date: "開始日"
+        end_date: "終了日"
+        number_of_people: "人数"
+      room:
+        name: "名前"
+        description: "説明"
+        address: "住所"
+        price: "価格"
     errors:
       models:
         reservation:
           attributes:
             start_date:
               blank: "は必須項目です"
-              in_the_past: "は本日以前の日付を選択できません"
             end_date:
               blank: "は必須項目です"
-              before_start_date: "は開始日よりも後の日付にしてください"
             number_of_people:
               blank: "は必須項目です"
-              greater_than_or_equal_to: "は1人以上を入力してください"
-      models:
+              greater_than_or_equal_to: "%{attribute}は1人以上を入力してください"
+          prohibited: "%{model}の保存が妨げられました。%{count}つのエラーがあります。"
         room:
           attributes:
             name:
@@ -24,3 +35,7 @@ ja:
               blank: "は必須項目です"
             price:
               not_a_number: "は数値で入力してください"
+              greater_than_or_equal_to: "は1円以上でなければなりません"
+          prohibited: "%{model}の保存が妨げられました。%{count}つのエラーがあります。"
+      messages:
+        prohibited: "保存が妨げられました。%{count}つのエラーがあります。"

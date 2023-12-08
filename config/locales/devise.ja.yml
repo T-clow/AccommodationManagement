@@ -11,11 +11,19 @@ ja:
               invalid: "メールアドレスが無効です。"
             password:
               blank: "パスワードを入力してください。"
-              too_short: "パスワードは%{count}文字以上で入力してください."
-            current_password:
-              blank: "現在のパスワードを入力してください。"
-            password_confirmation: 
-              confirmation: "パスワードとパスワードの確認が一致しません。"
-  errors:
-    messages:
-      not_saved: "保存に失敗しました。"
+              too_short: "パスワードは%{count}文字以上で入力してください。"
+      messages:
+        not_saved: "保存に失敗しました。"
+  devise:
+    failure:
+      already_authenticated: 'すでにログインしています。'
+      unauthenticated: 'このアクションを完了するにはログインしてください。'
+      unconfirmed: 'メールの確認が必要です。'
+      locked: 'アカウントがロックされています。'
+      invalid: 'メールアドレスまたはパスワードが正しくありません。'
+      invalid_token: '無効なトークンです。'
+      timeout: 'セッションがタイムアウトしました。再度ログインしてください。'
+      inactive: 'アカウントは有効化されていません。'
+      not_found_in_database: 'メールアドレスが登録されていません。'
+      sessions:
+        signed_in: 'すでにログインしています。'
