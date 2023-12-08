@@ -1,8 +1,6 @@
 <h1 class="edittitile">アカウント情報編集</h1>
 <div class="info">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    
-    <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
       <%= f.label :メールアドレス %><br />
@@ -28,28 +26,10 @@
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
 
-    <div class="field">
-    <%= f.label :ユーザー画像 %><br />
-    <%= f.file_field :avatar %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ユーザーネーム %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :自己紹介文 %><br />
-    <%= f.text_area :bio %>
-  </div>
-
-
-
-
     <div class="actions">
       <%= f.submit "更新", class: 'btn btn-outline-primary' %>
     </div>
   <% end %>
   <%= button_to "アカウントを削除する", registration_path(resource_name),class:"btn btn-outline-danger", data: { confirm: "本当によろしいですか？", turbo_confirm: "本当によろしいですか？" }, method: :delete %>
-  <%= link_to "戻る", :back, class: "back-link btn btn-outline-secondary" %>
+  <%= link_to "戻る", account_path(current_user), class: "back-link btn btn-outline-secondary"%> 
   </div>
