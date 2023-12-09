@@ -1,4 +1,4 @@
-<h1 class="title"> 更新予約内容確認</h1>
+<h1 class="title"> 予約内容確認</h1>
 
 <div class="confirmation-container">
     <h3><%= @room.name %></h3>
@@ -21,5 +21,5 @@
       <%= f.hidden_field :price, value: @room.price %>
       <%= f.submit '確定する', class: 'submit-button' %>
     <% end %>
-    <%= link_to "戻る", edit_reservation_path(@reservation), class: "back-link btn btn-outline-secondary" %>
-    </div>
+    <%= link_to "戻る", :back, class: "back-link btn btn-outline-secondary" %>
+  </div>

@@ -27,7 +27,7 @@
 
         <p class="description"><%= @reservation.room.description %></p>
       </div>
-      <%= form_for @reservation, url: update_confirm_reservation_path(@reservation), method: :pat do |f| %>
+      <%= form_for @reservation, url: update_confirm_reservation_path(@reservation), method: :patch do |f| %>
         <% if @room.present? %>
           <%= f.hidden_field :room_id, value: @room.id %>
         <% end %>

@@ -51,7 +51,7 @@ class ReservationsController < ApplicationController
     if @reservation.update(reservation_params)
       redirect_to reservation_path(@reservation), notice: '予約を更新しました.'
     else
-      render :edit
+      redirect_to edit_reservation_path(@reservation), alert: '予約の更新に失敗しました。'
     end
   end
 
@@ -64,7 +64,7 @@ class ReservationsController < ApplicationController
     @room = @reservation.room
   else
     # 更新に失敗した場合の処理
-    render :edit
+    redirect_to edit_reservation_path(@reservation), alert: '予約の更新に失敗しました。'
   end
 end
 
