@@ -23,11 +23,12 @@ Rails.application.routes.draw do
   patch 'reservations/:id', to: 'reservations#update', as: 'update_reservation'
 
   get '/search', to: 'search#index', as: 'search'
+  
 
   root 'home#index'
 
   devise_scope :user do
     get 'profile/edit', to: 'users/registrations#edit_profile', as: :edit_profile
   end
-  
+
 end
