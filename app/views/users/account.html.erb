@@ -1,0 +1,18 @@
+<h1 class="edittitile" >アカウント</h1>
+
+<nav class="navbar">
+  <%= link_to 'アカウント', account_path(current_user), class: "nav-link" %>
+  <%= link_to 'プロフィール', account_path(page: 'profile'), class: "nav-link" %>
+</nav>
+
+<div class="info">
+    <div>
+      <strong>メールアドレス:</strong> <%= @user.email %>
+    </div>
+
+    <div>
+      <strong>パスワード:</strong> ********* 
+    </div>
+
+    <%= link_to 'アカウント編集', edit_user_registration_path, class: "btn btn-outline-warning" %>
+  </div>

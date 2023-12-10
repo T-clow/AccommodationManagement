@@ -1,0 +1,32 @@
+<% if @reservation.present? && @reservation.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this from being saved:</h2>
+    <ul>
+      <% @reservation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @room.present? && @room.errors.any? %>
+  <div id="room_error_explanation">
+    <h2><%= pluralize(@room.errors.count, "error") %> prohibited the room from being saved:</h2>
+    <ul>
+      <% @room.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @user.present? && @user.errors.any? %>
+  <div id="user_error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited the user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

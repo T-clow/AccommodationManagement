@@ -1,0 +1,59 @@
+<div class="FirstView">
+  <section class="container">
+    <h2 class="FirstView__title">
+      Hotel Harmonyで<br>
+      新たな旅の調べに出会う、<br>
+      心地よいハーモニー
+    </h2>
+
+    <div class="search-box">
+      <%= form_tag(search_rooms_path, method: :get) do %>
+        <%= text_field_tag :address_query, params[:address_query], placeholder: 'エリアを入力' %>
+        <%= submit_tag '検索', class: "btn btn-secondary" %>
+      <% end %>
+    </div>
+
+  </section>
+</div>
+
+<div class="RecommendedAreas">
+  <h3 class="RecommendedTitle">おすすめのエリア</h3>
+  <ul class="list-inline">
+    <li class="list-inline-item">
+      <%= link_to(search_rooms_path(address_query: '東京', commit: '検索'), class: "btn btn-outline-primary") do %>
+        <%= image_tag('https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg', alt: '東京') %>
+        <span>
+          Tokyo<br>
+          東京、未知の先へ。
+        </span>
+      <% end %>
+    </li>
+    <li class="list-inline-item">
+      <%= link_to(search_rooms_path(address_query: '大阪', commit: '検索'), class: "btn btn-outline-danger") do %>
+        <%= image_tag('https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg', alt: '大阪') %>
+        <span>
+          Osaka<br>
+          大阪の美食、心のこもったおもてなし。
+        </span>
+      <% end %>
+    </li>
+    <li class="list-inline-item">
+      <%= link_to(search_rooms_path(address_query: '京都', commit: '検索'), class: "btn btn-outline-warning") do %>
+        <%= image_tag('https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg', alt: '京都') %>
+        <span>
+          Kyoto<br>
+          京都、歴史と美の調和。
+        </span>
+      <% end %>
+    </li>
+    <li class="list-inline-item">
+      <%= link_to(search_rooms_path(address_query: '札幌', commit: '検索'), class: "btn btn-outline-info") do %>
+        <%= image_tag('https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg', alt: '札幌') %>
+        <span>
+          Saporo<br>
+          札幌、大自然の美と冒険。
+        </span>
+      <% end %>
+    </li>
+  </ul>
+</div>

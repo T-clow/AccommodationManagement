@@ -1,3 +1,34 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
+  resource :account
+
+  resources :rooms do
+    collection do
+      get 'search'
+      get 'search_by_address' # 住所検索のためのアクションを追加
+    end
+
+  end
+
+  resources :reservations do
+    member do
+      post 'confirm'
+      patch 'update_confirm'
+    end
+  end
+  
+  patch 'reservations/:id', to: 'reservations#update', as: 'update_reservation'
+
+  get '/search', to: 'search#index', as: 'search'
+  
+
+  root 'home#index'
+
+  devise_scope :user do
+    get 'profile/edit', to: 'users/registrations#edit_profile', as: :edit_profile
+  end
+
 end

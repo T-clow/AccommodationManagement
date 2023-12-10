@@ -1,0 +1,27 @@
+<h1 class="edittitile">プロフィール</h1>
+
+<nav class="navbar">
+  <%= link_to 'アカウント', account_path(current_user), class: "nav-link" %>
+  <%= link_to 'プロフィール', account_path(page: 'profile'), class: "nav-link" %>
+</nav>
+
+<div class="info">
+  <div>
+    <strong>アイコン画像:</strong>
+    <% if current_user.avatar.present? %>
+      <%= image_tag(current_user.avatar, class: "rounded-image") %>
+    <% else %>
+      <%= image_tag("https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png", class: "rounded-image") %>
+    <% end %>
+  </div>
+
+  <div>
+    <strong>名前:</strong> <%= @user.name %>
+  </div>
+
+  <div>
+    <strong>自己紹介文:</strong> <%= @user.bio %>
+  </div>
+
+  <%= link_to 'プロフィール編集', edit_profile_path, class: "btn btn-outline-warning" %>
+</div>

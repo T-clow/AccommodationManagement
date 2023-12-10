@@ -1,0 +1,98 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+  .FirstView {
+    background-image: url("https://www.ioriyuzuki.com/img/galleryautummn4.jpg");
+    background-size: cover; 
+    color: #fff;
+    text-align: center;
+    padding: 250px 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .FirstView__title {
+    font-size: 4em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .search-box {
+  margin-top: 20px; /* 上方向への余白を追加 */
+}
+
+.search-box input {
+  padding: 10px; /* 入力フィールドの余白 */
+}
+
+.search-box button {
+  padding: 10px; /* ボタンの余白 */
+}
+
+.list-inline {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+/* 観光地の画像の設定です*/
+
+.RecommendedTitle {
+  font-size: 50px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.list-inline-item {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.list-inline img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: 310px; 
+  height: 450px; 
+  object-fit: cover; 
+  border-radius: 10px;
+  margin: 5px; 
+}
+
+.list-inline-item span {
+  font-size: 100% ; 
+  font-weight: bold;
+  font-family: 'Dancing Script', cursive; 
+}
+
+/* フォームの設定です */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

@@ -1,0 +1,61 @@
+<div class="room-container">
+  <div class="room-image-show">
+   <% if @room.image.present? %>
+      <%= image_tag @room.image.url %>
+    <% else %>
+      <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png' %>
+    <% end %>
+  </div>
+
+  <div class="room-menu">
+    <div class="room-menu-inner">
+      <div class="room-name-and-price">
+        <h3 class="name"><%= @reservation.room.name %></h3>
+        <p class="price">¥<%= number_with_delimiter(@reservation.room.price) %>〜</p>
+      </div>
+
+      <div class="room-details">
+        <p class="address"><%= @reservation.room.address %></p>
+        
+        <span class="Room__stars">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+        </span>
+
+        <p class="description"><%= @reservation.room.description %></p>
+      </div>
+      <%= form_for @reservation, url: update_confirm_reservation_path(@reservation), method: :patch do |f| %>
+        <% if @room.present? %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+        <% end %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      
+          <div class="form-row">
+            <div class="form-group col">
+              <%= f.label :チェックイン %>
+              <%= f.text_field :start_date, required: true, class: 'datepicker form-control ' %>
+            </div>
+        
+            <div class="form-group col">
+              <%= f.label :チェックアウト %>
+              <%= f.text_field :end_date, required: true, class: 'datepicker form-control' %>
+            </div>
+        
+            <div class="form-group col">
+              <%= f.label :人数 %>
+              <%= f.text_field :number_of_people, class: 'form-control' %>
+            </div>
+          </div>
+      
+          <%= f.submit '再予約する', class: 'btn btn-outline-danger' %>
+      
+      
+      
+        <% end %>
+    </div>
+  </div>
+</div>
+<%= link_to "戻る", reservations_path, class: "back-link btn btn-outline-secondary" %>

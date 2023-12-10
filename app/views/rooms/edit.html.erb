@@ -1,0 +1,35 @@
+<h2>施設の内容編集</h2>
+
+<div class="info">
+    <%= form_for @room, html: { multipart: true } do |f| %>
+        <div class="field">
+        <%= f.label :name, '施設名' %>
+        <%= f.text_field :name %>
+        </div>
+    
+        <div class="field">
+        <%= f.label :description, '施設詳細' %>
+        <%= f.text_area :description %>
+        </div>
+    
+        <div class="field">
+        <%= f.label :price, '料金' %>
+        <%= f.number_field :price %>
+        </div>
+    
+        <div class="field">
+        <%= f.label :address, '住所' %>
+        <%= f.text_field :address %>
+        </div>
+    
+        <div class="field">
+        <%= f.label :image, '施設画像' %>
+        <%= f.file_field :image %>
+        </div>
+    
+        <div class="actions">
+        <%= f.submit '更新する', class: "btn btn-outline-primary" %>
+        </div>
+    <% end %>
+    <%= link_to "戻る", rooms_path, class: "back-link btn btn-outline-secondary" %>
+    </div>

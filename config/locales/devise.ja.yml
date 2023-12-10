@@ -1,0 +1,40 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name: "名前"
+            email: "メールアドレス"
+            password: "パスワード"
+        user:
+          attributes:
+            name:
+              blank: "名前を入力してください。"
+            email:
+              blank: "メールアドレスを入力してください。"
+              invalid: "メールアドレスが無効です。"
+            password:
+              blank: "パスワードを入力してください。"
+              too_short: "パスワードは%{count}文字以上で入力してください。"
+      messages:
+        not_saved: "保存に失敗しました。"
+  devise:
+    failure:
+      already_authenticated: 'すでにログインしています。'
+      unauthenticated: 'このアクションを完了するにはログインしてください。'
+      unconfirmed: 'メールの確認が必要です。'
+      locked: 'アカウントがロックされています。'
+      invalid: 'メールアドレスまたはパスワードが正しくありません。'
+      invalid_token: '無効なトークンです。'
+      timeout: 'セッションがタイムアウトしました。再度ログインしてください。'
+      inactive: 'アカウントは有効化されていません。'
+      not_found_in_database: 'メールアドレスが登録されていません。'
+    sessions:
+      signed_in: 'ログインに成功しました。'
+      signed_out: 'ログアウトに成功しました。'
+    registrations:
+      signed_up: '新規登録が完了しました。'
+      updated: 'アカウント情報を更新しました。'
+    passwords:
+      updated: 'パスワードが更新されました。'

@@ -1,0 +1,56 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+  
+  /* 編集画面*/
+h2{
+  text-align: center;
+}
+
+.parent-container {
+  width: 100%; /* あるいは適切な幅を指定 */
+}
+
+.info {
+  max-width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+  .info div {
+    margin-bottom: 15px;
+  }
+  
+  .info strong {
+    display: inline-block;
+    width: 150px;
+  }
+
+  /* アカウント、プロフィール画面*/
+
+  .edittitile {
+    display: flex;
+    justify-content: center;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .nav-link {
+    color: black; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: color 0.3s; 
+  
+    &:hover {
+      color: #ffcc00; 
+    }
+  }
+  

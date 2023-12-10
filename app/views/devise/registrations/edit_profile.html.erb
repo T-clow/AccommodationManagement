@@ -1,0 +1,39 @@
+<% @user ||= current_user %>
+<h1 class="edittitile">プロフィール情報編集</h1>
+<div class="info">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    
+    <% if current_user.avatar.attached? %>
+      <%= image_tag(current_user.avatar, class: "rounded-image") %>
+    <% else %>
+      <%= image_tag("https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png", class: "rounded-image") %>
+    <% end %>
+                  
+    <div class="field">
+      <%= f.label :ユーザー画像 %><br />
+      <%= f.file_field :avatar %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ユーザーネーム %><br />
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :自己紹介文 %><br />
+      <%= f.text_area :bio %>
+    </div>
+
+    <div class="field">
+      <%= f.label :現在のパスワード %> <i>(変更を確認するために現在のパスワードが必要です)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "更新", class: 'btn btn-outline-primary' %>
+    </div>
+  <% end %>
+  
+  <%= button_to "アカウントを削除する", registration_path(resource_name), class: "btn btn-outline-danger", data: { confirm: "本当によろしいですか？", turbo_confirm: "本当によろしいですか？" }, method: :delete %>
+  <%= link_to "戻る", account_path(page: 'profile'), class: "back-link btn btn-outline-secondary"%> 
+</div>

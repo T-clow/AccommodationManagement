@@ -1,0 +1,37 @@
+<div class="room-container">
+  <div class="room-image-show">
+    <% if @room.image.present? %>
+      <%= image_tag @room.image.url %>
+    <% else %>
+      <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png' %>
+    <% end %>
+  </div>
+
+  <div class="room-menu">
+    <div class="room-menu-inner">
+      <div class="room-name-and-price">
+        <h3 class="name"><%= @room.name %></h3>
+        <p class="price">¥<%= number_with_delimiter(@room.price) %>〜</p>
+
+      </div>
+
+      <div class="room-details">
+        <p class="address"><%= @room.address %></p>
+        
+        <span class="Room__stars">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+          <img alt="スターアイコン" src="https://rails-02-sample.herokuapp.com/assets/room/star-1544f5d9e9846039b88b7afca69bdd007b6a36405fbbbfaf4e1faba106f5a0b4.svg">
+        </span>
+
+        <p class="description"><%= @room.description %></p>
+      </div>
+      <%= render "reservations/new", reservation: @reservation %>
+    </div>
+  </div>
+</div>
+<%= link_to "戻る", "javascript:history.back()", class: "back-link btn btn-outline-secondary" %>
+</div>
+

@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require "active_storage/engine" #画像投稿のためのgem
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -16,7 +17,13 @@ module AccommodationManagement
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+    # Set the default time zone.
+    config.time_zone = "Tokyo"
+
+    # Set the default locale to Japanese.
+    config.i18n.default_locale = :ja
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.action_controller.permit_all_parameters = true
   end
 end
