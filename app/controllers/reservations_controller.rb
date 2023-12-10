@@ -7,7 +7,6 @@ class ReservationsController < ApplicationController
   def new
     @room = Room.find(params[:room_id]) if params[:room_id].present?
     @reservation = current_user.reservations.find_or_initialize_by(room: @room)
-    @reservation.room = @room if @room.present? 
   end
 
   def confirm
@@ -27,9 +26,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to reservation_path(@reservation), notice: '予約が確定しました。'
     else
-      @room = @reservation.room
-      flash.now[:alert] = '予約に失敗しました。'
-      render 'rooms/show'
+      redirect_to room_path(id: params[:reservation][:room_id]), alert: '予約に失敗しました。'
     end
   end
 
@@ -50,13 +47,14 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
-      redirect_to reservations_path, notice: '予約が更新されました'
+      redirect_to reservation_path(@reservation), notice: '予約を更新しました.'
     else
-      render :edit
+      redirect_to edit_reservation_path(@reservation), alert: '予約の更新に失敗しました。'
     end
   end
-  
+
  def update_confirm
   @reservation = Reservation.find(params[:id])
 
