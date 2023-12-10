@@ -6,7 +6,7 @@
       <th>施設画像</th>
       <th>施設名</th>
       <th>紹介文</th>
-      <th>合計金額</th>
+      <th>合計料金</th>
       <th>チェックイン日</th>
       <th>チェックアウト日</th>
       <th>予定確定日時</th>
@@ -29,18 +29,17 @@
       <% end %>
     <% end %>
   </td>
-      <td><%= reservation.room.name %></td>
+      <td><%= link_to room.name, room_path(room), class: "btn btn-light" %></td>
       <td><%= reservation.room.description %></td>
-      <td>¥<%= reservation.total_price %></td>
+      <td>¥<%= number_with_delimiter(reservation.total_price) %></td>
       <td><%= reservation.start_date.strftime("%Y年%m月%d日") %></td>
       <td><%= reservation.end_date.strftime("%Y年%m月%d日") %></td>
       <td><%= reservation.confirmed_at.strftime("%Y年%m月%d日 %H:%M") if reservation.confirmed_at %></td>
       <td>
-      <%= link_to '詳細', reservation_path(reservation), class: "btn btn-outline-info" %>
-      </td>
-      <td>
+        <%= link_to '詳細', reservation_path(reservation), class: "btn btn-light" %>
         <%= button_to '削除', reservation, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-outline-danger" %>
-      </td
+      </td>
+    
     </tr>
   <% end %>
   </tbody>

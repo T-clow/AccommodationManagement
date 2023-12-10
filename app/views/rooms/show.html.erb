@@ -11,7 +11,7 @@
     <div class="room-menu-inner">
       <div class="room-name-and-price">
         <h3 class="name"><%= @room.name %></h3>
-        <p class="price">¥<%= @room.price %>〜</p>
+        <p class="price">¥<%= number_with_delimiter(@room.price) %>〜</p>
       </div>
 
       <div class="room-details">
@@ -31,6 +31,6 @@
     </div>
   </div>
 </div>
-<%= link_to "戻る", reservations_path, class: "back-link btn btn-outline-secondary" %>
+<%= link_to "戻る", request.referer || reservations_path, class: "back-link btn btn-outline-secondary" %>
 </div>
 

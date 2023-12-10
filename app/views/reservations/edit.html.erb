@@ -11,7 +11,7 @@
     <div class="room-menu-inner">
       <div class="room-name-and-price">
         <h3 class="name"><%= @reservation.room.name %></h3>
-        <p class="price">¥<%= @reservation.room.price %>〜</p>
+        <p class="price">¥<%= number_with_delimiter(@reservation.room.price) %>〜</p>
       </div>
 
       <div class="room-details">
@@ -50,7 +50,7 @@
             </div>
           </div>
       
-          <%= f.submit '予約する', class: 'btn btn-outline-danger' %>
+          <%= f.submit '再予約する', class: 'btn btn-outline-danger' %>
       
       
       
